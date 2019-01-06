@@ -5,7 +5,7 @@ import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.settings.GameSettings;
 
 
-//Public klasser med nedarvning
+//Public klasse med nedarvning
 public class SpilApp extends GameApplication
 {
 
@@ -25,14 +25,18 @@ public class SpilApp extends GameApplication
         settings.setVersion("Version 1.0");
         settings.setTitle("Spil app");
         settings.setMenuEnabled(false);
-        settings.setIntroEnabled(true);
-
-
+        settings.setIntroEnabled(false);
     }
 
     @Override
     protected void initInput()
     {
+        try {
+            initAssets();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -41,6 +45,14 @@ public class SpilApp extends GameApplication
     {
 
     }
+    @Override
+    protected void initGame()
+    {
 
+    }
 
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
 }
